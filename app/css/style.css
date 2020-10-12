@@ -1,7 +1,9 @@
-@import "/app/css/general_styles.css";
-@import "/app/css/header.css";
-@import "/app/css/intro_section.css";
-@import "/app/css/my_services.css";
+@import "general_styles.css";
+@import "header.css";
+@import "intro_section.css";
+@import "my_services.css";
+@import "about-me.css";
+@import "my-work.css";
 
 *,
 *::before,
