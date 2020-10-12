@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <title>Sweet & Salty Studios</title>
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous"/>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+            <div>
+                <img src="images/logo.png" alt="logo">
+            </div>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link">HOME</a></li>
+                    <li class="nav__item"><a href="#services" class="nav__link">SERVICES</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">ABOUT</a></li>
+                    <li class="nav__item"><a href="#work" class="nav__link">WORK</a></li>
+                </ul>
+            </nav>
+    </header>
+
+    <!--  ___ _  _ _____ ___  ___  ___  _   _  ___ _____ ___ ___  _  _ 
+         |_ _| \| |_   _| _ \/ _ \|   \| | | |/ __|_   _|_ _/ _ \| \| |
+          | || .` | | | |   / (_) | |) | |_| | (__  | |  | | (_) | .` |
+         |___|_|\_| |_| |_|_\\___/|___/ \___/ \___| |_| |___\___/|_|\_| -->
+
+    <section class="intro" id="home">
+        <h1 class="section__title section__title--intro">
+            Hi, I am <strong>Mathias Mustonen</strong>
+        </h1>
+    
+        <p class="section__subtitle section__subtitle--intro">
+            software dev
+        </p>
+        <img src="images/portrait.png" alt="portrait" class="intro__img">
+    </section>
+
+<!--  ___ ___ _____   _____ ___ ___ ___ 
+     / __| __| _ \ \ / /_ _/ __| __/ __|
+     \__ \ _||   /\ V / | | (__| _|\__ \
+     |___/___|_|_\ \_/ |___\___|___|___/ -->
+    <section class="my-services" id="services">
+        <h2 class="section__title section__title--services">
+          What I do
+        </h2>
+        
+        <div class="services">
+            <div class="service">
+                <h3>Full Stack Development</h3>
+                <p> 
+                    Quisque tempor erat in elit scelerisque laoreet. 
+                    Duis nec erat vel orci semper eleifend. 
+                    Etiam congue commodo mauris sed rhoncus. 
+                    Morbi vehicula, diam et luctus hendrerit, 
+                    leo arcu dignissim ante, vel rhoncus mi ex sit amet diam. 
+                    Morbi vitae ligula at ipsum tincidunt cursus. 
+                    Donec a dignissim nunc, sit amet accumsan nisl. 
+                    Integer lobortis vulputate mi eget tempus. 
+                    Aenean pretium blandit eleifend. 
+                    n dui sem, feugiat elementum sem et, pretium placerat lorem. 
+                    Duis eget nisl eu nulla feugiat dignissim eget ac mauris.
+                </p>
+            </div>
+
+            <div class="service">
+                <h3>Game Development</h3>
+                <p>
+                    Suspendisse vitae ullamcorper libero, a bibendum velit. 
+                    Praesent blandit sagittis pellentesque. 
+                    Pellentesque consequat volutpat mattis. 
+                    Donec orci ante, rhoncus eu neque sed, ullamcorper consectetur erat. 
+                    Vivamus sodales, sem ornare sagittis porta, ex risus rutrum ante, 
+                    ac mollis neque lectus sit amet odio. Maecenas egestas at nulla sit amet gravida. 
+                    Aenean mollis vehicula nibh vitae tempor. Vestibulum a dolor id tellus scelerisque porttitor fringilla et magna. 
+                    Aenean luctus pulvinar dui vel consequat. Donec id mauris blandit, cursus urna nec, 
+                    sagittis est. Phasellus ornare, quam et mattis luctus, velit metus feugiat erat, 
+                    quis blandit nunc velit eu nunc.
+                </p>
+            </div>
+
+            <div class="service">
+                <h3>Service 3</h3>
+                <p>
+                    Nam quis tincidunt dolor, at sollicitudin magna. 
+                    Mauris libero nisi, pretium eget massa sit amet, 
+                    faucibus feugiat neque. Proin facilisis, lectus nec viverra cursus, 
+                    lorem eros pellentesque ex, sed pretium urna nisi sit amet magna. 
+                    Etiam pharetra quam dui, a venenatis nibh dictum at. 
+                    Suspendisse nec laoreet eros. Donec a efficitur lorem. 
+                    Cras nunc massa, vulputate id justo at, interdum pellentesque quam. 
+                    Quisque ut consequat eros, at tempus ligula. 
+                    Vivamus non nunc id metus scelerisque tincidunt vel quis dolor. 
+                    Nulla facilisi. Fusce tempor tincidunt eros, vitae ultricies erat. 
+                    Pellentesque congue ornare nunc, at vestibulum nisl ultricies nec. 
+                    In arcu eros, suscipit id eros id, ultricies sagittis odio.
+                </p>
+            </div>
+        </div>
+
+        <a href="#work" class="btn">My Work</a>
+    </section>
+
+<!--    _   ___  ___  _   _ _____ 
+       /_\ | _ )/ _ \| | | |_   _|
+      / _ \| _ \ (_) | |_| | | |  
+     /_/ \_\___/\___/ \___/  |_|   -->
+    <section class="about-me" id="about">
+        <h2 class="section__title section__title--about">Who I am</h2>
+        <p class="section__subtitle setion__subtitle--about"></p>
+
+        <div class="about-me__body">
+            <p>
+                Fusce consequat lacinia eros, a maximus mauris malesuada sed. 
+                Nunc dapibus, augue in volutpat dapibus, arcu velit condimentum lorem, 
+                non consequat neque nulla quis magna. Quisque mattis purus eget risus ultricies euismod nec a diam. 
+                Pellentesque id vulputate nisl, non eleifend massa. Nam sit amet ligula non leo porttitor convallis. 
+                Cras rutrum consectetur dapibus. Aenean interdum purus id placerat fermentum. 
+                Donec pharetra pulvinar placerat. Nulla facilisi. Etiam porttitor pulvinar eros sed condimentum.
+            </p>
+        </div>
+
+        <img src="images/portrait.png" alt="portrait">
+
+    </section>
+
+<!-- __      _____  ___ _  __
+     \ \    / / _ \| _ \ |/ /
+      \ \/\/ / (_) |   / ' < 
+       \_/\_/ \___/|_|_\_|\_\ -->
+
+    <section class="my-work" id="work">
+        <h2 class="section__title">Work</h2>
+        <p class="section__subtitle"></p>
+
+        <div class="portfolio">
+            <a href="#" class="portfolio__item">
+                <img src="images/portfolio_1.png" alt="" class="portfolio__img">
+            </a>
+            <a href="#" class="portfolio__item">
+                <img src="images/portfolio_2.png" alt="" class="portfolio__img">
+            </a>
+
+        </div>
+    </section>
+
+<!--  ___ ___   ___ _____ ___ ___ 
+     | __/ _ \ / _ \_   _| __| _ \
+     | _| (_) | (_) || | | _||   /
+     |_| \___/ \___/ |_| |___|_|_\ -->
+                                 
+    <footer>
+        <a href="mathias.mustonen@gmail.com" class="footer-link">mathias.mustonen@gmail.com</a>
+        <ul class="social-list">
+            <li class="social-list__item"><a class="social-list__link"
+                href="https//:google.com">GOOGLE</a></li>
+            <li class="social-list__item"><a class="social-list__link"
+                href="https//:linkedin.com">LINKEDIN</a></a></li>
+            <li class="social-list__item"><a class="social-list__link"
+                href="https//:twitter.com">TWITTER</a></a></li>
+            <li class="social-list__item"><a class="social-list__link"
+                href="https//:facebook.com">FACEBOOK</a></a></li>
+        </ul>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
