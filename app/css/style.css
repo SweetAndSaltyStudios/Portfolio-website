@@ -1,44 +1,42 @@
+
 @import "general_styles.css";
 @import "header.css";
 @import "intro_section.css";
 @import "my_services.css";
-@import "about-me.css";
-@import "my-work.css";
+@import "my_work.css";
+@import "footer.css"; 
 
-*,
-*::before,
-*::after 
-{
-    box-sizing: border-box;
-}
+/* TODO: about-me__body weird scaling. */
 
-/* CUSTOM PROPERTIES */
+/* @import "all_styles.css"; */
+
 :root 
 {
-    --ff-primary:'Open Sans', sans-serif;
-    --ff-secondary:'Source Code Pro', monospace;
-
+    --ff-primary: 'Source Sans Pro', sans-serif;
+    --ff-secondary: 'Source Code Pro', monospace;
+    
     --fw-reg: 300;
     --fw-bold: 900;
-
-    --clr-light:#fff;
+    
+    --clr-light: #fff;
     --clr-dark: #303030;
     --clr-accent: #16e0bd;
-
+    
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
     --fs-h3: 1.25rem;
     --fs-body: 1rem;
- 
-    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,0.25),
-          0.125em 0.125em 0.25em rgba(0,0,0,0.15); 
+    
+    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
+          0.125em 0.125em 0.25em rgba(0,0,0,.15);
 }
 
-@media (min-width: 800px)
+@media (min-width: 800px) 
 {
-    :root{
+    :root
+    {
         --fs-h1: 4.5rem;
-        --fs-h2: 3.7rem;
+        --fs-h2: 3.75rem;
         --fs-h3: 1.5rem;
         --fs-body: 1.125rem;
     }
