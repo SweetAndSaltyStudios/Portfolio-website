@@ -1,8 +1,6 @@
 
 const general_info_map =  new Map([
-    ["App name: " , navigator.appName],
-    ["App code name: " , navigator.appCodeName],
-    ["App version: " , navigator.appVersion],
+   
     ["Clipboard: " , navigator.clipboard],
     ["Is cookies enabled: " , navigator.cookieEnabled],
     ["Credentials: " , navigator.credentials],
@@ -19,7 +17,6 @@ const general_info_map =  new Map([
     ["Ms Pointer enabled :" , navigator.msPointerEnabled],
     ["Online: " , navigator.onLine],
     ["Permissions: " , navigator.permissions],
-    ["Platform: " , navigator.platform],
     ["Pointer enabled: " , navigator.pointerEnabled],
     ["Product: " , navigator.product],
     ["Product sub: " , navigator.productSub],
@@ -28,14 +25,18 @@ const general_info_map =  new Map([
     ["User agent: " , navigator.userAgent],
     ["Vendor: " , navigator.vendor],
     ["Vendor sub: " , navigator.vendorSub],
-    ["Web driver: " , navigator.webdriver]
 ]);
 
-const other_info_map = new Map([
-    ["KEY: " , "VALUE"],
-    ["KEY: " , "VALUE"],
-    ["KEY: " , "VALUE"],
-    ["KEY: " , "VALUE"]
+const browser_info_map = new Map([
+    ["App name: " , navigator.appName],
+    ["App code name: " , navigator.appCodeName],
+    ["App version: " , navigator.appVersion],
+    ["Web driver: " , navigator.webdriver],
+]);
+
+const device_info_map = new Map([
+    ["Platform: " , navigator.platform],
+    ["Device memory: ", `This device has at least ${navigator.deviceMemory}GiB of RAM.`]
 ]);
 
 initialize_info_box_content(
@@ -45,10 +46,15 @@ initialize_info_box_content(
 );
 
 initialize_info_box_content(
-    "OTHER",
-    document.querySelector('.other-info'),
-    other_info_map
+    "BROWSER",
+    document.querySelector('.browser-info'),
+    browser_info_map
 );
+
+initialize_info_box_content(
+    "DEVICE",
+    document.querySelector('.device-info'),
+    device_info_map);
 
 function initialize_info_box_content (title, info_element, data_map)
 {
