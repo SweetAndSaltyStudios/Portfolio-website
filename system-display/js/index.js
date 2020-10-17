@@ -13,8 +13,6 @@ const general_info_map =  new Map([
     // Window object is sufficient for feature detection. 
     // Do not use this property and use PointerEvent instead.
     // ['Pointer enabled: ' , navigator.pointerEnabled],
-
-    
 ]);
 
 const browser_info_map = new Map([
@@ -35,60 +33,6 @@ const device_info_map = new Map([
     ['Hardware concurrency: ' , `${navigator.hardwareConcurrency} logical processors available to run threads on the device.}`]
 ]);
 
-const other_info_map = new Map([
-    ['Clipboard: ' , navigator.clipboard],
-    ['Credentials: ' , navigator.credentials],
-    ['Geolocation: ' , navigator.geolocation],
-    ['Permissions: ' , navigator.permissions],
-    ['Product: ' , navigator.product],
-    ['Product sub: ' , navigator.productSub],
-    ['Service worker: ' , navigator.serviceWorker],
-    ['Storage: ' , navigator.storage],
-    ['Vendor: ' , navigator.vendor],
-    ['Vendor sub: ' , navigator.vendorSub],
-    
-    ['User agent: ' , navigator.userAgent],
-]);
-
-initialize_info_box_content(
-    "GENERAL",
-    document.querySelector('.general-info'),
-    general_info_map
-);
-
-initialize_info_box_content(
-    "BROWSER",
-    document.querySelector('.browser-info'),
-    browser_info_map
-);
-
-initialize_info_box_content(
-    "DEVICE",
-    document.querySelector('.device-info'),
-    device_info_map);
-
-function initialize_info_box_content (title, info_element, data_map)
-{
-    const title_element_name = "." + info_element.className + ' .flexbox-title';
-    const content_element_name = "." + info_element.className + ' .flexbox-content';
-
-    const title_element = document.querySelector(title_element_name);
-    const content_element = document.querySelector(content_element_name);
-
-    title_element.innerHTML = title; 
-
-    for (let [key, value] of data_map.entries()) 
-    {
-        let entry = key + value;
-    
-        var new_line_tag = document.createElement('li');
-    
-        new_line_tag.innerHTML = entry;
-    
-        content_element.append(new_line_tag);
-    }
-}
-
 const mimeTypes = navigator.mimeTypes;
 const mime_info_map = new Map();
 const mimeLenth = mimeTypes.length;
@@ -100,15 +44,61 @@ for(var i = 0; i < mimeLenth; i++)
     mime_info_map.set(`Mime ${i + 1}:`, mimeTypes[i]);
 };
 
-initialize_info_box_content(
-    'MIMES',
-    document.querySelector('.mime-info'),
-    mime_info_map);
-    
+const other_info_map = new Map([
+    ['Clipboard: ' , navigator.clipboard],
+    ['Credentials: ' , navigator.credentials],
+    ['Geolocation: ' , navigator.geolocation],
+    ['Permissions: ' , navigator.permissions],
+    ['Product: ' , navigator.product],
+    ['Product sub: ' , navigator.productSub],
+    ['Service worker: ' , navigator.serviceWorker],
+    ['Storage: ' , navigator.storage],
+    ['Vendor: ' , navigator.vendor],
+    ['Vendor sub: ' , navigator.vendorSub],
+
+    ['User agent: ' , navigator.userAgent],
+]);
+
+function create_info_section(content_title, content_data_map, parent_element)
+{
+    let list_items = [];
+
+    for (let [key, value] of content_data_map.entries()) 
+    {
+        list_items += `<li>${key + value}</li>`;
+    }
+
+    console.log(list_items.length)
+
+    let new_section = 
+    `<section>
+    <div class="flexbox-container">
+    <div class="flexbox-item"> 
+    <h1 class="flexbox-title">
+                    <strong>${content_title}</strong>
+                </h1>
+                    <div class="flexbox-content">
+                    ${list_items}
+                    </div>
+                </div>
+            </div> 
+    </section>`
+
+    parent_element.innerHTML += new_section;
+}
+
+const section_element = document.querySelector('.sections');
+
+create_info_section("GENERAL", general_info_map, section_element);
+create_info_section("BROWSER", browser_info_map, section_element);
+create_info_section("DEVICE", device_info_map, section_element);
+create_info_section("MIMES", mime_info_map, section_element);
+create_info_section("OTHERS", other_info_map, section_element);
+
 const geolocation = navigator.geolocation;
 
-const options = { eableHighAccurac: true, timeout: 5000, maximumAge: 0 }
-function onSuccess(position) 
+geolocation.getCurrentPosition(
+(position) => 
 {
     const coordinates = position.coords;
     
@@ -116,11 +106,11 @@ function onSuccess(position)
     console.log(`Latitude: ${coordinates.latitude}`);
     console.log(`Longitude: ${coordinates.latitude}`);
     console.log(`More or less ${coordinates.accuracy} meters.`);
-}
-
-function onError(error)
+}, 
+(error) =>
 {
     console.error(`ERROR (${error.code}): ${error.message}`);
-}
-
-geolocation.getCurrentPosition(onSuccess, onError, options);
+}, 
+{ 
+    eableHighAccurac: true, timeout: 5000, maximumAge: 0
+});
