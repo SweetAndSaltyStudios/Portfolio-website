@@ -1,0 +1,98 @@
+<!Doctype html>
+
+<html lang="fr">	
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width"=device-width">
+			<Title>Our Solar System</Title>
+		<link href="css/main.css" type="text/css" rel="stylesheet"/>
+	</head>	
+	<body>		 
+		<header>
+			<nav>				
+				<div id="nav-wrapper">
+						<ul>
+							<li><a href="index.html">Home</a></li><li>
+							<!-- <a href="#">About</a></li><li> -->
+							<li>
+							
+							<a href="#">Planets <img src="images/menu_icons/dropdown_arrow.png" height="6" width="12"> </a>
+								<ul>
+									<div><li><a onClick="Planet('Mercury')" href="#" >Mercury</a></li></div>									
+									<div><li><a onClick="Planet('Venus')" href="#">Venus</a></li></div>					
+									<div><li><a onClick="Planet('Earth')"href="#">Earth</a></li></div>						
+									<div><li><a onClick="Planet('Mars')"href="#">Mars</a></li></div>											
+									<div><li><a onClick="Planet('Jupiter')"href="#">Jupiter</a></li></div>					
+									<div><li><a onClick="Planet('Saturn')"href="#">Saturn</a></li></div>						
+									<div><li><a onClick="Planet('Uranus')"href="#">Uranus</a></li></div>							
+									<div><li><a onClick="Planet('Neptune')"href=#">Neptune</a></li></div>
+								</ul>
+							</li>
+								
+							<li>
+							<a href="#">Social <img src="images/menu_icons/dropdown_arrow.png" height="6" width="12"></a>
+								<ul>
+									<li><a href="https://www.Youtube.com"><img src="images/menu_icons/youtube_icon.png" height="40" width="40"> Youtube</a></li>
+									<li><a href="https://www.Twitter.com"><img src="images/menu_icons/twitter_icon.png" height="40" width="40"> Twitter</a></li>
+									<li><a href="https://www.Facebook.com"><img src="images/menu_icons/facebook_icon.png" height="40" width="40"> Facebook</a></li>
+								</ul>
+							</li>
+							
+							<div id="date"><a>Date</a></div>
+							<script>
+								var date = new Date();
+								document.getElementById("date").innerHTML = date;
+							</script>
+						</ul>
+				</div>				
+			</nav>
+		</header>			
+
+		<section>
+			<div class="video-box"> 
+				<div class="wrapper">
+					<iframe
+						width="960" height="540" src="https://www.youtube.com/embed/BT49AiYFV98?rel=0" 
+						frameborder="0" allowfullscreen>
+					</iframe>
+				</div>
+			</div>
+			
+			<div class="index-intro">				
+				<div id="intro-wrapper">
+					<h2 id="info-title">Solar System</h2>
+						<p id="info-text">
+							<!-- Changing text... -->
+						</p>
+				</div>
+			</div>	
+	
+			<div class="form-box">
+				<div id="form-wrapper">
+					<form action="form.php" method="GET">
+						<input type="text" name="first" placeholder="First name">
+						<br>	
+						<input type="text" name="last" placeholder="Last name">
+						<br>					
+						<textarea name="message"></textarea>
+						<br>
+						<button onClick="SendInfo()" type="submit">Submit</button
+					</form>
+				</div>
+			</div>			
+		</section>
+		
+		<footer>
+		 <div class="wrapper">
+			<nav>
+				<ul>
+					<li><a>Mathias Mustonen 2017 &copy;</a></li>					
+				</ul>
+			</nav>
+		 </div>
+		</footer>	
+		
+		<script src="scripts/main.js"> </script>
+		
+	</body>		
+</html>
