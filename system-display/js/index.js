@@ -1,3 +1,36 @@
+function hasNetwork(online)
+{
+    const element = document.querySelector('.newtork-status');
+
+    if(online)
+    {
+        element.classList.remove('offline');
+        element.classList.add('online');
+        element.innerText = 'Online';
+    }
+    else
+    {
+        element.classList.remove('online');
+        element.classList.add('offline');
+        element.innerText = 'Offline';
+    }
+}
+
+window.addEventListener("load", () => 
+{
+    hasNetwork(navigator.onLine);
+
+    window.addEventListener("online", () => 
+    {
+        hasNetwork(true);
+    }); 
+    
+    window.addEventListener("offline", () => 
+    {
+        hasNetwork(false);
+    });
+});
+
 const general_info_map =  new Map([
     ['Online: ' , navigator.onLine],
     ['Languages: ' , navigator.languages],
@@ -31,6 +64,12 @@ const device_info_map = new Map([
     ['Media devices: ' , navigator.mediaDevices],
     ['Device memory: ' , `This device has at least ${navigator.deviceMemory}GiB of RAM.`],
     ['Hardware concurrency: ' , `${navigator.hardwareConcurrency} logical processors available to run threads on the device.}`]
+]);
+
+const bar = navigator.connection;
+console.log(bar);
+const newtwork_info_map = new Map([
+    ["KEY: ", "VALUE"],
 ]);
 
 const mimeTypes = navigator.mimeTypes;
@@ -68,8 +107,6 @@ function create_info_section(content_title, content_data_map, parent_element)
         list_items += `<li>${key + value}</li>`;
     }
 
-    console.log(list_items.length)
-
     let new_section = 
     `<section>
     <div class="flexbox-container">
@@ -90,6 +127,7 @@ function create_info_section(content_title, content_data_map, parent_element)
 const section_element = document.querySelector('.sections');
 
 create_info_section("GENERAL", general_info_map, section_element);
+create_info_section("NETWORK", newtwork_info_map, section_element);
 create_info_section("BROWSER", browser_info_map, section_element);
 create_info_section("DEVICE", device_info_map, section_element);
 create_info_section("MIMES", mime_info_map, section_element);
@@ -97,8 +135,8 @@ create_info_section("OTHERS", other_info_map, section_element);
 
 const geolocation = navigator.geolocation;
 
-geolocation.getCurrentPosition(
-(position) => 
+/*
+geolocation.getCurrentPosition((position) => 
 {
     const coordinates = position.coords;
     
@@ -114,3 +152,4 @@ geolocation.getCurrentPosition(
 { 
     eableHighAccurac: true, timeout: 5000, maximumAge: 0
 });
+*/
