@@ -1,11 +1,13 @@
 var timeDisplay = document.querySelector(".time-display");
+let timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+let language = navigator.language;
 
 function refreshTime() 
 {
-    let timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    let dateString = new Date().toLocaleString(language, {timeZone: timeZone});
 
-    var dateString = new Date().toLocaleString("en-US", {timeZone: timeZone});
-    var formattedString = dateString.replace(", ", " - ");
+    let formattedString = dateString.replace(", ", " - ");
+    
     timeDisplay.innerHTML = formattedString;
 }
 
