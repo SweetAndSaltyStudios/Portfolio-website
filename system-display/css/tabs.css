@@ -1,11 +1,13 @@
+*{
+    box-sizing: border-box;
+}
+
 .tab_container {
     border: 1px solid #cccccc;
-    display: flex;
 }
 
 .tab__sidebar {
-    width: 125px;
-    flex-shrink: 0;
+    display: flex;
     background: #eeeeee;
 }
 
@@ -22,30 +24,28 @@
     background: #dddddd;
 }
 
-.tab__button:not(:last-of-type) {
-    border-bottom: 1px solid #cccccc;
-}
-
 .tab__button--active {
     font-weight: bold;
-    border-right: 2px solid #b8ff8e;
     background: #dddddd;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 0px solid black;
+    border-left: 2px solid black;
+    margin-bottom: -2px;
 }
 
 .tab_contents {
-    background-color: orchid;
+    background-color: #dddddd;
 }
 
 .tab__content {
     display: none;
+    border: 2px solid black;
     padding: 15px;
     font-size: 0.8rem;
+    list-style: none;
 }
 
 .tab__content--active {
     display: block;
-}
-
-.tab__content > :first-child {
-    margin: 0;
 }
