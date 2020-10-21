@@ -1,7 +1,13 @@
+// console.log(connection.onchange);
+// console.log(connection.effectiveType);
+// console.log(connection.rtt);
+// console.log(connection.downlink);
+// console.log(connection.saveData);
+
 function create_tab_elements(content_data_objects)
 {
-    const tabs_sidebar = document.querySelector('.tab__sidebar');
-    const tab_contents = document.querySelector('.tab_contents');
+    const tab__button_container = document.querySelector('.tab__button_container');
+    const tab_content_container = document.querySelector('.tab_content_container');
     
     id = 1;
     
@@ -9,15 +15,29 @@ function create_tab_elements(content_data_objects)
     {
         let new_list_elements = [];
 
-        tabs_sidebar.innerHTML += 
+        tab__button_container.innerHTML += 
         `<button class="tab__button" data-for-tab="${id}">${data_object.title}</button>`;
 
         for (const [key, value] of data_object.content_map.entries()) 
         {
+            if(value === Object(value))
+            {
+                //console.log(value);
+                //console.log(`${key}: ${typeof value}`);
+            }
+
+            // if(value === Object(value))
+            // {
+                // console.log(`${key}: ${typeof(value)}`);
+                // for (const [key, foo] of Object.entries(value)) {
+                //     console.log(`${key}: ${foo}`);
+                //   }
+            // }
+
             new_list_elements += `<h2>${key}</h2><li>${value}</li>`
         }
 
-        tab_contents.innerHTML +=
+        tab_content_container.innerHTML +=
         `<div class="tab__content" data-for-tab="${id}">${new_list_elements}</div>`
 
         id++;
@@ -56,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () =>
         { 'title' : 'BROWSER', 'content_map' : browser_info_map },
         { 'title' : 'DEVICE', 'content_map' : device_info_map },
         { 'title' : 'NETWORK', 'content_map' : newtwork_info_map },
-        { 'title' : 'MIME', 'content_map' : mime_info_map },
+        { 'title' : 'MIMES', 'content_map' : mime_info_map },
         { 'title' : 'OTHER', 'content_map' : other_info_map}];
 
     create_tab_elements(content_data_objects);
@@ -97,6 +117,7 @@ const browser_info_map = new Map([
 ]);
 
 const device_info_map = new Map([
+    ['Keyboard', navigator.keyboard],
     ['Operating system', navigator.oscpu],
     ['Max touch points', navigator.maxTouchPoints],
     ['Media devices', navigator.mediaDevices],
@@ -104,11 +125,15 @@ const device_info_map = new Map([
     ['Hardware concurrency', `${navigator.hardwareConcurrency} logical processors available to run threads on the device.}`]
 ]);
 
-// const bar = ;
-// console.log(bar);
+const connection = navigator.connection;
 
 const newtwork_info_map = new Map([
-    ["CONNECTON", navigator.connection],
+    ["DOWN LINK", connection.downLink],
+    ["DOWN LINK", connection.downLinkMax],
+    ["EFFECTIVE TYPE", connection.effectiveType],
+    ["RTT", connection.rtt],
+    ["SAVE DATA", connection.saveData],
+    ["TYPE", connection.type],
 ]);
 
 const mimeTypes = navigator.mimeTypes;

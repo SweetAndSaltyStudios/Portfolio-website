@@ -1,23 +1,22 @@
-*{
-    box-sizing: border-box;
-}
-
 .tab_container {
-    border: 1px solid #cccccc;
+    padding: 0.25em;
 }
 
-.tab__sidebar {
+.tab__button_container {
     display: flex;
-    background: #eeeeee;
+}
+
+.tab_content_container {
+    display: flex;
+    background-color:#dddddd;
 }
 
 .tab__button {
-    display: block;
-    padding: 1em;
     background: #cccccc;
     width: 100%;
-    border: none;
+    padding: 0.25em;
     outline: none;
+    border-style: unset;
 }
 
 .tab__button:active {
@@ -27,25 +26,16 @@
 .tab__button--active {
     font-weight: bold;
     background: #dddddd;
-    border-top: 2px solid black;
-    border-right: 2px solid black;
-    border-bottom: 0px solid black;
-    border-left: 2px solid black;
-    margin-bottom: -2px;
-}
-
-.tab_contents {
-    background-color: #dddddd;
 }
 
 .tab__content {
     display: none;
-    border: 2px solid black;
-    padding: 15px;
+    padding: 10px;
     font-size: 0.8rem;
     list-style: none;
 }
 
 .tab__content--active {
-    display: block;
+    display: flex;
+    flex-direction: column;
 }
