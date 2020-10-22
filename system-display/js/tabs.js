@@ -1,9 +1,3 @@
-// console.log(connection.onchange);
-// console.log(connection.effectiveType);
-// console.log(connection.rtt);
-// console.log(connection.downlink);
-// console.log(connection.saveData);
-
 function create_tab_elements(content_data_objects)
 {
     const tab__button_container = document.querySelector('.tab__button_container');
@@ -22,24 +16,25 @@ function create_tab_elements(content_data_objects)
         {
             if(value === Object(value))
             {
-                //console.log(value);
-                //console.log(`${key}: ${typeof value}`);
+                new_list_elements += `<h2>${key}</h2>`;
+
+                for (const [object_key , object_value] of Object.entries(value)) 
+                {
+                    new_list_elements += 
+                    `<li>${object_value}</li>`;
+                }
+            }
+            else
+            {
+                new_list_elements += 
+                `<h2>${key}</h2><li>${value}</li>`;
             }
 
-            // if(value === Object(value))
-            // {
-                // console.log(`${key}: ${typeof(value)}`);
-                // for (const [key, foo] of Object.entries(value)) {
-                //     console.log(`${key}: ${foo}`);
-                //   }
-            // }
-
-            new_list_elements += `<h2>${key}</h2><li>${value}</li>`
         }
-
-        tab_content_container.innerHTML +=
+        
+        tab_content_container.innerHTML += 
         `<div class="tab__content" data-for-tab="${id}">${new_list_elements}</div>`
-
+       
         id++;
     });
 
@@ -77,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () =>
         { 'title' : 'DEVICE', 'content_map' : device_info_map },
         { 'title' : 'NETWORK', 'content_map' : newtwork_info_map },
         { 'title' : 'MIMES', 'content_map' : mime_info_map },
+        { 'title' : 'STORAGE', 'content_map' : storage_info_map },
         { 'title' : 'OTHER', 'content_map' : other_info_map}];
 
     create_tab_elements(content_data_objects);
@@ -91,19 +87,8 @@ document.addEventListener('DOMContentLoaded', () =>
 
 const general_info_map =  new Map([
     ['Online', navigator.onLine],
-    ['Languages', navigator.languages],
     ['Language', navigator.language],
-
-    // Specific to Internet Explorer and Microsoft Edge.
-    // ['Ms Manipulation views enabled: ', navigator.msManipulationViewsEnabled],
-    // ['Ms Max touuch points: ' , navigator.msMaxTouchPoints],
-    // ['Ms Pointer enabled: ', navigator.msPointerEnabled],
-    
-    // In late 2013, 
-    // pointerEnabled was removed from the specification as checking PointerEvent in
-    // Window object is sufficient for feature detection. 
-    // Do not use this property and use PointerEvent instead.
-    // ['Pointer enabled: ' , navigator.pointerEnabled],
+    ['Languages', navigator.languages],
 ]);
 
 const browser_info_map = new Map([
@@ -128,12 +113,12 @@ const device_info_map = new Map([
 const connection = navigator.connection;
 
 const newtwork_info_map = new Map([
-    ["DOWN LINK", connection.downLink],
-    ["DOWN LINK", connection.downLinkMax],
-    ["EFFECTIVE TYPE", connection.effectiveType],
-    ["RTT", connection.rtt],
-    ["SAVE DATA", connection.saveData],
-    ["TYPE", connection.type],
+    ["Down link", connection.downLink],
+    ["Down link max", connection.downLinkMax],
+    ["Effective type", connection.effectiveType],
+    ["Rtt", connection.rtt],
+    ["Save data", connection.saveData],
+    ["Type", connection.type],
 ]);
 
 const mimeTypes = navigator.mimeTypes;
@@ -146,6 +131,11 @@ for(var i = 0; i < mimeLenth; i++)
 {
     mime_info_map.set(`Mime ${i + 1}`, mimeTypes[i]);
 };
+
+const storage_info_map = new Map([
+    ['LOCAL STORAGE', window.localStorage],
+    ['SESSION STORAGE', window.localStorage],
+]);
 
 const other_info_map = new Map([
     ['Clipboard', navigator.clipboard],
