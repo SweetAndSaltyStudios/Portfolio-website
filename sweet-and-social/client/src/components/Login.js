@@ -1,10 +1,10 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { Container, Form, Button } from 'react-bootstrap';
 import { v4 as uuidV4 } from 'uuid';
 
 export default function Login( { onSubmitID }) 
 {
-    const idRef = useRef();
+    const idRef = React.createRef();
 
     function handleSubmit (event) 
     {
