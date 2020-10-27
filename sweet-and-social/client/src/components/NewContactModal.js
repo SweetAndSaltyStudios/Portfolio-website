@@ -4,15 +4,17 @@ import { useContacts } from '../contexts/ContactsProvider';
 
 export default function NewContactModal({ closeModal }) 
 {
-  const idRef = useRef()
-  const nameRef = useRef()
-  const { createContact } = useContacts()
+  const idRef = useRef();
+  const nameRef = useRef();
+  const { createContact } = useContacts();
 
-  function handleSubmit(event) {
-    event.preventDefault()
+  function handleSubmit(event) 
+  {
+    event.preventDefault();
 
-    createContact(idRef.current.value, nameRef.current.value)
-    closeModal()
+    createContact(idRef.current.value, nameRef.current.value);
+
+    closeModal();
   }
 
   return (
