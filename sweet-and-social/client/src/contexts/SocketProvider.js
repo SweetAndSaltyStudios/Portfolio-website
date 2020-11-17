@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import io from 'socket.io-client';
 
 const SocketContext = React.createContext();
+const ENDPOINT = 'http://localhost:5000';
 
 export function useSocket()
 {
@@ -15,7 +16,7 @@ export function SocketProvider({ id, children })
   useEffect(() => 
   {
     const newSocket = io(
-      'http://localhost:5000',
+      ENDPOINT,
       { query: { id } }
     )
     setSocket(newSocket);

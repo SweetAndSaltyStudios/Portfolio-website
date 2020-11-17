@@ -1,3 +1,7 @@
+.nav {
+  background-color: lightcoral;
+}
+
 body,
   h1,
   h2,
@@ -5,34 +9,31 @@ body,
   h4,
   h5,
   h6 {
+    background: rgb(20, 20, 20);
+    color: whitesmoke;
     font-family: "Montserrat", sans-serif
   }
 
-  .w3-row-padding img {
-    margin-bottom: 12px
-  }
+  .sidebar {
+  background-color: magenta;
 
-  /* Set the width of the sidebar to 120px */
-  .w3-sidebar {
     width: 120px;
     background: #222;
   }
 
-  /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
-  #main {
-    margin-left: 120px
-  }
-
-  /* Remove margins from "page content" on small screens */
-  @media only screen and (max-width: 600px) {
-    #main {
-      margin-left: 0
-    }
-  }
-
   .time-display
   {
+    background-color: lightskyblue;
+
     text-align: right;
     font-weight: 600;
     padding: 2em 1em  1em 1em;
+  }
+  
+  .footer {
+    background-color: violet;
+  }
+
+  .footer li {
+    list-style: none;
   }
