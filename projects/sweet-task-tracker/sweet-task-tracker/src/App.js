@@ -5,6 +5,7 @@ import TaskForm from './components/TaskForm.js'
 
 function App() 
 {
+  const [showTaskForm, setShowTaskForm] = useState(false);
   const [tasks, setTasks] = useState([
     {
         id: 1,
@@ -31,19 +32,25 @@ function App()
 
   const createTask = (task) =>
   {
-    console.log(task);
+    const id = Math.floor(Math.random() * 10000) + 1;
+    const newTask = { id, ...task };
+    setTasks([...tasks, newTask]);
   }
 
   return (
     <div className="container">
-    <Header title = 'Sweet Task Tracker'/>
-    <TaskForm onCreate={createTask}/>
+    <Header 
+      title = 'Sweet Task Tracker' 
+      onFormToggle={() => setShowTaskForm(!showTaskForm)} 
+      showTaskForm={showTaskForm}/>
+    
+    {showTaskForm && <TaskForm onCreate={createTask}/>}
     {tasks.length > 0 
-    ? <Tasks 
-    tasks={tasks} 
-    onDelete={deleteTask}
-    onToggle={toggleReminder}/>
-    : 'No tasks'}
+      ? <Tasks 
+      tasks={tasks} 
+      onDelete={deleteTask}
+      onToggle={toggleReminder}/>
+      : 'No tasks'}
     </div>
   );
 }

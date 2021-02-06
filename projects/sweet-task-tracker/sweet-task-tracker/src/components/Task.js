@@ -7,7 +7,7 @@ function Task({task, onDelete, onToggle})
         onDoubleClick={() => onToggle(task.id)}>
             <h3>
                 {task.description}
-                <Button 
+                <Button className='disable-select'
                 color='red' 
                 label='Delete' 
                 onClickEvent = {() => onDelete(task.id)}>

@@ -1,14 +1,23 @@
 import { useState } from 'react';
 
-const TaskForm = ({createTask}) => 
+import Button from './Button.js';
+
+const TaskForm = ({onCreate}) => 
 {
     const onSubmit = (event) => 
     {
         event.preventDefault();
 
-        if(!description){ alert("Please add task"); }
+        if(!description)
+        { 
+            alert("Please add description.");
+            return;
+        }
 
-        onCreate
+        onCreate({description, reminder});
+
+        setDescription('');
+        setReminder(false);
     }
 
     const [description, setDescription] = useState('');
@@ -17,21 +26,26 @@ const TaskForm = ({createTask}) =>
     return (
        <form className='add-form' onSubmit={onSubmit}>
            <div className='form-control'>
-            <label>Task</label>
+            <label>Description</label>
             <input 
             type='text' 
-            placeholder='Create Task' 
+            placeholder='Description' 
             value={description} 
             onChange={(event) => setDescription(event.target.value)}/>
            </div>
            <div className='form-control form-control-check'>
             <label>Set Reminder</label>
             <input type='checkbox'  
+            checked={reminder}
             value={reminder} 
             onChange={(event) => setReminder(event.currentTarget.checked)}/>
            </div>
 
-           <input type='submit' value='Save Task' className='btn btn-block'></input>
+           <Button 
+           color='green' 
+           label='Create' 
+           className='btn btn-block'>
+           </Button>
        </form>
     )
 }
