@@ -1,14 +1,23 @@
-var timeDisplay = document.querySelector(".time-display");
-let timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-let language = navigator.language;
+const hamburger = document.querySelector('.hamburger');
+const navLinkContainer = document.querySelector('.nav-link-container');
+const navLinks = document.querySelectorAll('.nav-link-container li');
 
-function refreshTime() 
+const navSlide = () =>
 {
-    let dateString = new Date().toLocaleString(language, {timeZone: timeZone});
+    hamburger.addEventListener('click', () => 
+    {
+        console.log('HAMBURGER CLICK');
 
-    let formattedString = dateString.replace(", ", " - ");
-    
-    timeDisplay.innerHTML = formattedString;
+        navLinkContainer.classList.toggle('nav-active');
+        navLinks.forEach((navLink, index) => 
+        {
+            navLink.style.animation = navLink.style.animation == false 
+            ? `navLinkFade 0.5s ease forwards ${index / 10 + 0.5}s`
+            : '';
+        });
+
+        hamburger.classList.toggle('hamburger-pressed');
+    });
 }
 
-setInterval(refreshTime, 1000);
+navSlide();
