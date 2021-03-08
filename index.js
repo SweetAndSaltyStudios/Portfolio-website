@@ -6,9 +6,8 @@ const navSlide = () =>
 {
     hamburger.addEventListener('click', () => 
     {
-        console.log('HAMBURGER CLICK');
-
         navLinkContainer.classList.toggle('nav-active');
+
         navLinks.forEach((navLink, index) => 
         {
             navLink.style.animation = navLink.style.animation == false 
