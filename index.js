@@ -1,43 +1,25 @@
-import { createElement } from "./src/models/elementGenerator.js";
+import Navbar from "./src/models/navbar.js";
+import Slideshow from "./src/models/slideshow.js";
 
 window.onload = () => 
 {
     createNavbar();
+    createSlideshow();
 }
 
 function createNavbar()
 {
-    const navbarElement = createElement('nav', document.body, ['navbar']);
+    const navbar = new Navbar(document.body, 'Sweet & Salty Studios');
     
-    const brandTitle = createElement('div', navbarElement, ['brand-title'] );
-    brandTitle.innerText = 'Sweet & Salty Studios';
+    navbar.createListItems([
+        { link: '#', title: 'Home' },
+        { link: '#', title: 'About' },
+        { link: '#', title: 'Work' },
+        { link: '#', title: 'Projects'} 
+    ]);
+}
 
-    const hamburgerToggle = createElement('a', navbarElement, ['toggle-button']);
-    hamburgerToggle.href = '#';
-
-    hamburgerToggle.addEventListener('click', () => 
-    {
-        navbarLinks.classList.toggle('active');
-    });
-
-    createElement('span', hamburgerToggle, ['bar']);
-    createElement('span', hamburgerToggle, ['bar']);
-    createElement('span', hamburgerToggle, ['bar']);
-    
-    const navbarLinks = createElement('div', navbarElement, ['navbar-links']);
-    navbarLinks.innerHTML = 
-    `<ul>
-        <li>
-            <a href="#">Home</a>
-        </li>
-        <li>
-            <a href="#">About</a>
-        </li>
-        <li>
-            <a href="#">Work</a>
-        </li>
-        <li>
-            <a href="#">Projets</a>
-        </li>
-    </ul>`;
+function createSlideshow()
+{
+    const slideShow = new Slideshow();
 }

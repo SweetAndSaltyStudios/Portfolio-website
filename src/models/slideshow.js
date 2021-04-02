@@ -1,0 +1,61 @@
+import Button from "./button.js";
+
+export default class Slideshow
+{
+    constructor()
+    {
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        
+        const previousSlideButton = new Button(
+            document.querySelector('.previous'),
+            () => plusSlides(-1));
+
+        const nextSlideButton = new Button(
+            document.querySelector('.next'),
+            () => plusSlides(1));
+
+        // Next/previous controls
+        function plusSlides(n) 
+        {
+        showSlides(slideIndex += n);
+        console.log("!!!")
+        }
+        
+        // Thumbnail image controls
+        function currentSlide(n) 
+        {
+        showSlides(slideIndex = n);
+        }
+
+        const dots = document.querySelectorAll('.dot');
+        for (let i = 0; i < dots.length; i++)
+        {
+            dots[i].addEventListener('click', () => currentSlide(i + 1))
+        }
+        
+        function showSlides(n) 
+        {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+
+            if (n > slides.length) {slideIndex = 1}
+
+            if (n < 1) {slideIndex = slides.length}
+
+            for (i = 0; i < slides.length; i++) 
+            {
+                slides[i].style.display = "none";
+            }
+
+            for (i = 0; i < dots.length; i++) 
+            {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+        }
+    }
+}
